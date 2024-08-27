@@ -4,7 +4,9 @@ import streamlit as st
 from openai import OpenAI
 from pathlib import Path
 
-client = OpenAI(api_key = "OPENAI_API_KEY")
+api_key = st.secrets["OPENAI_API_KEY"]
+
+client = OpenAI(api_key=api_key)
 
 def encode_image(image_file):
     return base64.b64encode(image_file.read()).decode("utf-8")
